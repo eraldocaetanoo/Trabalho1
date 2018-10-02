@@ -489,7 +489,7 @@ public class Principal {
             if (s==3){
                 //JOptionPane.showMessageDialog(null, "Voce clicou reajustar");
                 
-                //CONTA POUPANÇA
+                //CONnnTA POUPANÇA
              
                 try{
                 tr = Double.parseDouble(JOptionPane.showInputDialog(null,"Digite taxa de reajuste para conta poupança(%):",  "Taxa de reajuste Conta Poupança", JOptionPane.QUESTION_MESSAGE));
