@@ -34,7 +34,6 @@ public class Contas{
         this.saldo = saldo;
     }
 
-    
     public double depositar(double valor){
         this.saldo=this.saldo+ valor;
         return this.saldo;
@@ -46,13 +45,6 @@ public class Contas{
           
     }
     
-    /*
-    public double transferir(double valor){
-        
-        //this.Sacar(con);
-  
-    }
-    */
     public String tipoConta(){
         return "Comum";   
     }

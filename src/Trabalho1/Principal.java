@@ -58,15 +58,13 @@ public class Principal {
                                 else{
                                     JOptionPane.showOptionDialog(null, "Saldo insuficiente!!!", "Saque",
                                     JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, voltar, voltar[0]);
-                                }
-                            c=1;   
+                                }  
                             }
                             else{
                                 JOptionPane.showOptionDialog(null, "Saque cancelado!!!\n", "Saque",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.OK_CANCEL_OPTION, null, voltar, voltar[0]);
-                                
-                            c=1;
                             }
+                c=1;
                 }
                 if (nc==cp.getNumero()){
                             c = JOptionPane.showOptionDialog(null, "Nome do titular da conta:\n"+cp.getNome(), "Saque",
@@ -80,14 +78,13 @@ public class Principal {
                                 else {
                                     JOptionPane.showOptionDialog(null, "Saldo insuficiente!!!", "Saque",
                                     JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, voltar, voltar[0]);
-                                } 
-                            c=1;    
+                                }  
                             }
                             else{
                                 JOptionPane.showOptionDialog(null, "Saque cancelado!!!", "Saque",
-                                JOptionPane.DEFAULT_OPTION, JOptionPane.OK_CANCEL_OPTION, null, voltar, voltar[0]);
-                            c=1;    
+                                JOptionPane.DEFAULT_OPTION, JOptionPane.OK_CANCEL_OPTION, null, voltar, voltar[0]);    
                             }
+                c=1;
                 }
                 if (nc==ce.getNumero()){
                             c = JOptionPane.showOptionDialog(null, "Nome do titular da conta:\n"+ce.getNome(), "Saque",
@@ -107,14 +104,13 @@ public class Principal {
                                 else{
                                     JOptionPane.showOptionDialog(null, "Saldo insuficiente!!!", "Saque",
                                     JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, voltar, voltar[0]);
-                                } 
-                            c=1;  
+                                }
                             }
                             else{
                                 JOptionPane.showOptionDialog(null, "Saque cancelado\n", "Saque",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.OK_CANCEL_OPTION, null, voltar, voltar[0]); 
-                            c=1;    
                             }
+                c=1;
                 }
             }
             if (s==1){
@@ -132,14 +128,13 @@ public class Principal {
                                 else{
                                     JOptionPane.showOptionDialog(null, "Depósito inválido!!!", "Depósito",
                                     JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, voltar, voltar[0]);
-                                }       
-                                c=1;
+                                }
                             }
                             else{
                                 JOptionPane.showOptionDialog(null, "Depósito cancelado!!!\n", "Depósito",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.OK_CANCEL_OPTION, null, voltar, voltar[0]);
-                                c=1;
                             }
+                c=1;
                 }
                 if(nc==cp.getNumero()){
                             c = JOptionPane.showOptionDialog(null, "Nome do titular da conta:\n"+cp.getNome(), "Depósito",
@@ -155,13 +150,12 @@ public class Principal {
                                     JOptionPane.showOptionDialog(null, "Depósito inválido!!!", "Depósito",
                                     JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, voltar, voltar[0]);
                                 }
-                            c=1;
                             }
                             else{
                                 JOptionPane.showOptionDialog(null, "Depósito cancelado!!!\n", "Depósito",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.OK_CANCEL_OPTION, null, voltar, voltar[0]);
-                            c=1;
                             }
+                c=1;
                 }
                 if(nc==ce.getNumero()){
                             c = JOptionPane.showOptionDialog(null, "Nome do titular da conta:\n"+ce.getNome(), "Depósito",
@@ -177,13 +171,12 @@ public class Principal {
                                     JOptionPane.showOptionDialog(null, "Depósito inválido!!!", "Depósito",
                                     JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, voltar, voltar[0]);
                                 }
-                            c=1;
                             }
                             else{
                                 JOptionPane.showOptionDialog(null, "Depósito cancelado!!!\n", "Depósito",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.OK_CANCEL_OPTION, null, voltar, voltar[0]);
-                            c=1;  
                             }
+                c=1;
                 } 
             }
             if (s==2){
@@ -195,14 +188,14 @@ public class Principal {
                         c = JOptionPane.showOptionDialog(null, "Nomes do titulares das contas:\n"+cc.getNome()+"\n"+cp.getNome(), "Saque",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, coca, coca[0]);
                         if (c==0){
-                            if (vt>0){
+                            if (vt>0 && vt<cc.saldo){
                                 cc.saldo=cc.saldo-vt;
                                 cp.saldo=cp.saldo+vt;
                                 JOptionPane.showOptionDialog(null, "Transferência efetuada com sucesso!!!\n", "Transferência",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, voltar, voltar[0]);
                             }
                             else{
-                                JOptionPane.showOptionDialog(null, "Valor de transferência inválido!!!\n", "Transferência",
+                                JOptionPane.showOptionDialog(null, "Valor de transferência inválido ou excedente ao saldo da conta de "+cc.getNome()+", nº "+cc.getNumero()+"!!!\n", "Transferência",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, voltar, voltar[0]);
                             } 
                         }
@@ -216,14 +209,14 @@ public class Principal {
                         c = JOptionPane.showOptionDialog(null, "Nomes do titulares das contas:\n"+cc.getNome()+"\n"+ce.getNome(), "Saque",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, coca, coca[0]);
                         if (c==0){
-                            if (vt>0){
+                            if (vt>0 && vt<cc.saldo){
                                 cc.saldo=cc.saldo-vt;
                                 ce.saldo=ce.saldo+vt;
                                 JOptionPane.showOptionDialog(null, "Transferência efetuada com sucesso!!!\n", "Transferência",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, voltar, voltar[0]);
                             }
                             else{
-                                JOptionPane.showOptionDialog(null, "Valor de transferência inválido!!!\n", "Transferência",
+                                JOptionPane.showOptionDialog(null, "Valor de transferência inválido ou excedente ao saldo da conta de "+cc.getNome()+", nº "+cc.getNumero()+"!!!\n", "Transferência",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, voltar, voltar[0]);
                             }
                         }
@@ -237,14 +230,14 @@ public class Principal {
                         c = JOptionPane.showOptionDialog(null, "Nomes do titulares das contas:\n"+cp.getNome()+"\n"+cc.getNome(), "Saque",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, coca, coca[0]);
                         if (c==0){
-                            if (vt>0){
+                            if (vt>0 && vt<cp.saldo){
                                 cp.saldo=cp.saldo-vt;
                                 cc.saldo=cc.saldo+vt;
                                 JOptionPane.showOptionDialog(null, "Transferência efetuada com sucesso!!!\n", "Transferência",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, voltar, voltar[0]);
                             }
                             else{
-                                JOptionPane.showOptionDialog(null, "Valor de transferência inválido!!!\n", "Transferência",
+                                JOptionPane.showOptionDialog(null, "Valor de transferência inválido ou excedente ao saldo da conta de "+cp.getNome()+", nº "+cp.getNumero()+"!!!\n", "Transferência",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, voltar, voltar[0]);
                             } 
                         }
@@ -258,14 +251,14 @@ public class Principal {
                         c = JOptionPane.showOptionDialog(null, "Nomes do titulares das contas:\n"+cp.getNome()+"\n"+ce.getNome(), "Saque",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, coca, coca[0]);
                         if (c==0){
-                            if (vt>0){
+                            if (vt>0 && vt<cp.saldo){
                                 cp.saldo=cp.saldo-vt;
                                 ce.saldo=ce.saldo+vt;
                                 JOptionPane.showOptionDialog(null, "Transferência efetuada com sucesso!!!\n", "Transferência",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, voltar, voltar[0]);
                             }
                             else{
-                                JOptionPane.showOptionDialog(null, "Valor de transferência inválido!!!\n", "Transferência",
+                                JOptionPane.showOptionDialog(null, "Valor de transferência inválido ou excedente ao saldo da conta de "+cp.getNome()+", nº "+cp.getNumero()+"!!!\n", "Transferência",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, voltar, voltar[0]);
                             } 
                         }
@@ -279,14 +272,14 @@ public class Principal {
                         c = JOptionPane.showOptionDialog(null, "Nomes do titulares das contas:\n"+ce.getNome()+"\n"+cc.getNome(), "Saque",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, coca, coca[0]);
                         if (c==0){
-                            if (vt>0){
+                            if (vt>0 && vt<ce.saldo){
                                 ce.saldo=ce.saldo-vt;
                                 cc.saldo=cc.saldo+vt;
                                 JOptionPane.showOptionDialog(null, "Transferência efetuada com sucesso!!!\n", "Transferência",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, voltar, voltar[0]);
                             }
                             else{
-                                JOptionPane.showOptionDialog(null, "Valor de transferência inválido!!!\n", "Transferência",
+                                JOptionPane.showOptionDialog(null, "Valor de transferência inválido ou excedente ao saldo da conta de "+ce.getNome()+", nº "+ce.getNumero()+"!!!\n", "Transferência",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, voltar, voltar[0]);
                             }
                         }
@@ -300,14 +293,14 @@ public class Principal {
                         c = JOptionPane.showOptionDialog(null, "Nomes do titulares das contas:\n"+ce.getNome()+"\n"+cp.getNome(), "Saque",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, coca, coca[0]);
                         if (c==0){
-                            if (vt>0){
+                            if (vt>0 && vt<ce.saldo){
                                 ce.saldo=ce.saldo-vt;
                                 cp.saldo=cp.saldo+vt;
                                 JOptionPane.showOptionDialog(null, "Transferência efetuada com sucesso!!!\n", "Transferência",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, voltar, voltar[0]);
                             }
                             else{
-                                JOptionPane.showOptionDialog(null, "Valor de transferência inválido!!!\n", "Transferência",
+                                JOptionPane.showOptionDialog(null, "Valor de transferência inválido ou excedente ao saldo da conta de "+ce.getNome()+", nº "+ce.getNumero()+"!!!\n", "Transferência",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, voltar, voltar[0]);
                             }
                         }
@@ -325,22 +318,22 @@ public class Principal {
                     JOptionPane.showOptionDialog(null, "Número(s) de conta(s) diferente(s) dos armazenados!\n", "Transferência",
                             JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, voltar, voltar[0]);
                 }
-                c=1;
+            c=1;
             }
             if (s==3){
                 try{
                 tr = Double.parseDouble(JOptionPane.showInputDialog(null,"Digite taxa de reajuste para conta poupança(%):",  "Taxa de reajuste Conta Poupança", JOptionPane.QUESTION_MESSAGE));
                     cp.saldo=cp.reajustar(tr);
                     JOptionPane.showMessageDialog(null, "Reajuste realizado! ");
-                }catch (NumberFormatException e){
+                }catch (NumberFormatException e ){
                     cp.saldo=cp.reajustar();
                     JOptionPane.showMessageDialog(null, "Reajuste realizado! ");
                 }  
             c=1;
             }
             if (s==4){
-                JOptionPane.showMessageDialog(null, "Saldo Conta "+cc.tipoConta()+": "+cc.saldo+" reais\nSaldo Conta "+cp.tipoConta()+": "+cp.saldo+" reais\nSaldo Conta "+ce.tipoConta()+": "+ce.saldo+" reais");
-                c=1;
+                JOptionPane.showMessageDialog(null, "Saldo conta "+cc.tipoConta()+", "+cc.getNome()+", nº "+cc.getNumero()+": \n -> "+cc.saldo+" reais\nSaldo conta "+cp.tipoConta()+", "+cp.getNome()+", nº "+cp.getNumero()+": \n -> "+cp.saldo+" reais\nSaldo conta "+ce.tipoConta()+", "+ce.getNome()+", nº "+ce.getNumero()+": \n -> "+ce.saldo+" reais");
+            c=1;
             }
             if (s==5){
                System.exit(0);
