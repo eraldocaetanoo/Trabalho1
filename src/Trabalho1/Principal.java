@@ -25,19 +25,26 @@ public class Principal {
         
         JOptionPane.showMessageDialog(null, "Bem vindo(a)!!!");
         
-        cc.setNome (JOptionPane.showInputDialog(null,"Digite nome do titular da conta comum:", "Nome titular Conta Comum", JOptionPane.QUESTION_MESSAGE));
-        cc.setNumero (Integer.parseInt(JOptionPane.showInputDialog(null,"Digite número de conta comum:",  "Numero Conta Comum", JOptionPane.QUESTION_MESSAGE)));
-        cc.setSaldo (Double.parseDouble(JOptionPane.showInputDialog(null,"Digite Saldo de conta comum (R$):",  "Saldo Conta Comum", JOptionPane.QUESTION_MESSAGE)));
+        do{
+            cc.setNome (JOptionPane.showInputDialog(null,"Digite nome do titular da conta comum:", "Nome titular Conta Comum", JOptionPane.QUESTION_MESSAGE));
+            cc.setNumero (Integer.parseInt(JOptionPane.showInputDialog(null,"Digite número de conta comum:",  "Numero Conta Comum", JOptionPane.QUESTION_MESSAGE)));
+            cc.setSaldo (Double.parseDouble(JOptionPane.showInputDialog(null,"Digite Saldo de conta comum (R$):",  "Saldo Conta Comum", JOptionPane.QUESTION_MESSAGE)));
         
-        cp.setNome (JOptionPane.showInputDialog(null,"Digite nome do titular da conta poupança:", "Nome titular Conta Poupança", JOptionPane.QUESTION_MESSAGE));
-        cp.setNumero (Integer.parseInt(JOptionPane.showInputDialog(null,"Digite numero de conta poupança:",  "Numero Conta Poupança", JOptionPane.QUESTION_MESSAGE)));
-        cp.setSaldo(Double.parseDouble(JOptionPane.showInputDialog(null,"Digite Saldo de conta poupança (R$):",  "Saldo Conta Poupança", JOptionPane.QUESTION_MESSAGE)));
-          
-        ce.setNome (JOptionPane.showInputDialog(null,"Digite nome do titular da conta especial:", "Nome titular Conta Especial", JOptionPane.QUESTION_MESSAGE));
-        ce.setNumero (Integer.parseInt(JOptionPane.showInputDialog(null,"Digite número de conta especial:",  "Numero Conta Especial", JOptionPane.QUESTION_MESSAGE)));
-        ce.setSaldo (Double.parseDouble(JOptionPane.showInputDialog(null,"Digite Saldo de conta especial (R$):",  "Saldo Conta Especial", JOptionPane.QUESTION_MESSAGE)));
-        ce.limite = (Integer.parseInt(JOptionPane.showInputDialog(null,"Digite limite da conta especial (R$):",  "Limite titular Conta Especial", JOptionPane.QUESTION_MESSAGE)));
-        mu = (Double.parseDouble(JOptionPane.showInputDialog(null,"Digite multa para conta especial (%):",  "Multa Conta Especial", JOptionPane.QUESTION_MESSAGE)));
+            cp.setNome (JOptionPane.showInputDialog(null,"Digite nome do titular da conta poupança:", "Nome titular Conta Poupança", JOptionPane.QUESTION_MESSAGE));
+            cp.setNumero (Integer.parseInt(JOptionPane.showInputDialog(null,"Digite numero de conta poupança:",  "Numero Conta Poupança", JOptionPane.QUESTION_MESSAGE)));
+            cp.setSaldo(Double.parseDouble(JOptionPane.showInputDialog(null,"Digite Saldo de conta poupança (R$):",  "Saldo Conta Poupança", JOptionPane.QUESTION_MESSAGE)));
+        
+            ce.setNome (JOptionPane.showInputDialog(null,"Digite nome do titular da conta especial:", "Nome titular Conta Especial", JOptionPane.QUESTION_MESSAGE));
+            ce.setNumero (Integer.parseInt(JOptionPane.showInputDialog(null,"Digite número de conta especial:",  "Numero Conta Especial", JOptionPane.QUESTION_MESSAGE)));
+            ce.setSaldo (Double.parseDouble(JOptionPane.showInputDialog(null,"Digite Saldo de conta especial (R$):",  "Saldo Conta Especial", JOptionPane.QUESTION_MESSAGE)));
+            ce.limite = (Integer.parseInt(JOptionPane.showInputDialog(null,"Digite limite da conta especial (R$):",  "Limite titular Conta Especial", JOptionPane.QUESTION_MESSAGE)));
+            mu = (Double.parseDouble(JOptionPane.showInputDialog(null,"Digite multa para conta especial (%):",  "Multa Conta Especial", JOptionPane.QUESTION_MESSAGE)));
+            
+            if ((cc.getNumero()==cp.getNumero()) || (cc.getNumero()==ce.getNumero())){
+                JOptionPane.showOptionDialog(null, "Números de contas iguais! Refaça o cadastro.", "Contas",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, voltar, voltar[0]);
+            }
+        } while ((cc.getNumero()==cp.getNumero()) || (cc.getNumero()==ce.getNumero()));
         
         int s,c=0;
         do{
@@ -61,12 +68,12 @@ public class Principal {
                                 }  
                             }
                             else{
-                                JOptionPane.showOptionDialog(null, "Saque cancelado!!!\n", "Saque",
+                                JOptionPane.showOptionDialog(null, "Saque cancelado!!!", "Saque",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.OK_CANCEL_OPTION, null, voltar, voltar[0]);
                             }
-                c=1;
+                
                 }
-                if (nc==cp.getNumero()){
+                else if (nc==cp.getNumero()){
                             c = JOptionPane.showOptionDialog(null, "Nome do titular da conta:\n"+cp.getNome(), "Saque",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, coca, coca[0]);
                             if (c==0){
@@ -84,9 +91,9 @@ public class Principal {
                                 JOptionPane.showOptionDialog(null, "Saque cancelado!!!", "Saque",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.OK_CANCEL_OPTION, null, voltar, voltar[0]);    
                             }
-                c=1;
+                
                 }
-                if (nc==ce.getNumero()){
+                else if (nc==ce.getNumero()){
                             c = JOptionPane.showOptionDialog(null, "Nome do titular da conta:\n"+ce.getNome(), "Saque",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, coca, coca[0]);
                             if (c==0){
@@ -107,40 +114,44 @@ public class Principal {
                                 }
                             }
                             else{
-                                JOptionPane.showOptionDialog(null, "Saque cancelado\n", "Saque",
+                                JOptionPane.showOptionDialog(null, "Saque cancelado!!!", "Saque",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.OK_CANCEL_OPTION, null, voltar, voltar[0]); 
                             }
-                c=1;
                 }
+                else{
+                    JOptionPane.showOptionDialog(null, "Número de conta inexistente!!!", "Saque",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.OK_CANCEL_OPTION, null, voltar, voltar[0]);
+                }
+            c=1;
             }
             if (s==1){
                 nc = Integer.parseInt(JOptionPane.showInputDialog(null,"Número da conta para depósito:",  "Depósito", JOptionPane.QUESTION_MESSAGE));
                 if(nc==cc.getNumero()){
-                            c = JOptionPane.showOptionDialog(null, "Nome do titular da conta:\n"+cc.getNome(), "Depósito",
+                    dep = Double.parseDouble(JOptionPane.showInputDialog(null,"Valor de depósito (R$):",  "Depósito", JOptionPane.QUESTION_MESSAGE));
+                    c = JOptionPane.showOptionDialog(null, "Nome do titular da conta:\n"+cc.getNome(), "Depósito",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, coca, coca[0]);
-                            if (c==0){
-                                dep = Double.parseDouble(JOptionPane.showInputDialog(null,"Valor de depósito (R$):",  "Depósito", JOptionPane.QUESTION_MESSAGE));
-                                if(dep>0){
-                                    cc.saldo=cc.depositar(dep);
-                                    JOptionPane.showOptionDialog(null, "Depósito efetuado com sucesso!!! ", "Depósito",
-                                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, voltar, voltar[0]);
-                                }
-                                else{
-                                    JOptionPane.showOptionDialog(null, "Depósito inválido!!!", "Depósito",
-                                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, voltar, voltar[0]);
-                                }
-                            }
-                            else{
-                                JOptionPane.showOptionDialog(null, "Depósito cancelado!!!\n", "Depósito",
-                                JOptionPane.DEFAULT_OPTION, JOptionPane.OK_CANCEL_OPTION, null, voltar, voltar[0]);
-                            }
+                    if (c==0){
+                        if(dep>0){
+                            cc.saldo=cc.depositar(dep);
+                            JOptionPane.showOptionDialog(null, "Depósito efetuado com sucesso!!! ", "Depósito",
+                            JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, voltar, voltar[0]);
+                        }
+                        else{
+                        JOptionPane.showOptionDialog(null, "Depósito inválido!!!", "Depósito",
+                        JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, voltar, voltar[0]);
+                        }
+                    }
+                    else{
+                        JOptionPane.showOptionDialog(null, "Depósito cancelado!!!\n", "Depósito",
+                        JOptionPane.DEFAULT_OPTION, JOptionPane.OK_CANCEL_OPTION, null, voltar, voltar[0]);
+                    }
                 c=1;
                 }
                 if(nc==cp.getNumero()){
+                    dep = Double.parseDouble(JOptionPane.showInputDialog(null,"Valor de depósito (R$):",  "Depósito", JOptionPane.QUESTION_MESSAGE));
                             c = JOptionPane.showOptionDialog(null, "Nome do titular da conta:\n"+cp.getNome(), "Depósito",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, coca, coca[0]);
                             if (c==0){
-                               dep = Double.parseDouble(JOptionPane.showInputDialog(null,"Valor de depósito (R$):",  "Depósito", JOptionPane.QUESTION_MESSAGE));
                                if(dep>0){
                                     cp.saldo=cp.depositar(dep);
                                     JOptionPane.showOptionDialog(null, "Depósito efetuado com sucesso!!! ", "Depósito",
@@ -158,10 +169,10 @@ public class Principal {
                 c=1;
                 }
                 if(nc==ce.getNumero()){
+                    dep = Double.parseDouble(JOptionPane.showInputDialog(null,"Valor de depósito (R$):",  "Depósito", JOptionPane.QUESTION_MESSAGE));
                             c = JOptionPane.showOptionDialog(null, "Nome do titular da conta:\n"+ce.getNome(), "Depósito",
                                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, coca, coca[0]);
                             if (c==0){
-                                dep = Double.parseDouble(JOptionPane.showInputDialog(null,"Valor de depósito (R$):",  "Depósito", JOptionPane.QUESTION_MESSAGE));
                                 if(dep>0){
                                     ce.saldo=ce.depositar(dep);
                                     JOptionPane.showOptionDialog(null, "Depósito efetuado com sucesso!!! ", "Depósito",
