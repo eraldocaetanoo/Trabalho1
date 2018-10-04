@@ -27,16 +27,16 @@ public class Principal {
         
         do{
             cc.setNome (JOptionPane.showInputDialog(null,"Digite nome do titular da conta comum:", "Nome titular Conta Comum", JOptionPane.QUESTION_MESSAGE));
-            cc.setNumero (Integer.parseInt(JOptionPane.showInputDialog(null,"Digite número de conta comum:",  "Numero Conta Comum", JOptionPane.QUESTION_MESSAGE)));
-            cc.setSaldo (Double.parseDouble(JOptionPane.showInputDialog(null,"Digite Saldo de conta comum (R$):",  "Saldo Conta Comum", JOptionPane.QUESTION_MESSAGE)));
+            cc.setNumero (Integer.parseInt(JOptionPane.showInputDialog(null,"Digite número de conta comum:",  "Número Conta Comum", JOptionPane.QUESTION_MESSAGE)));
+            cc.setSaldo (Double.parseDouble(JOptionPane.showInputDialog(null,"Digite saldo de conta comum (R$):",  "Saldo Conta Comum", JOptionPane.QUESTION_MESSAGE)));
         
             cp.setNome (JOptionPane.showInputDialog(null,"Digite nome do titular da conta poupança:", "Nome titular Conta Poupança", JOptionPane.QUESTION_MESSAGE));
-            cp.setNumero (Integer.parseInt(JOptionPane.showInputDialog(null,"Digite numero de conta poupança:",  "Numero Conta Poupança", JOptionPane.QUESTION_MESSAGE)));
-            cp.setSaldo(Double.parseDouble(JOptionPane.showInputDialog(null,"Digite Saldo de conta poupança (R$):",  "Saldo Conta Poupança", JOptionPane.QUESTION_MESSAGE)));
+            cp.setNumero (Integer.parseInt(JOptionPane.showInputDialog(null,"Digite número de conta poupança:",  "Número Conta Poupança", JOptionPane.QUESTION_MESSAGE)));
+            cp.setSaldo(Double.parseDouble(JOptionPane.showInputDialog(null,"Digite saldo de conta poupança (R$):",  "Saldo Conta Poupança", JOptionPane.QUESTION_MESSAGE)));
         
             ce.setNome (JOptionPane.showInputDialog(null,"Digite nome do titular da conta especial:", "Nome titular Conta Especial", JOptionPane.QUESTION_MESSAGE));
-            ce.setNumero (Integer.parseInt(JOptionPane.showInputDialog(null,"Digite número de conta especial:",  "Numero Conta Especial", JOptionPane.QUESTION_MESSAGE)));
-            ce.setSaldo (Double.parseDouble(JOptionPane.showInputDialog(null,"Digite Saldo de conta especial (R$):",  "Saldo Conta Especial", JOptionPane.QUESTION_MESSAGE)));
+            ce.setNumero (Integer.parseInt(JOptionPane.showInputDialog(null,"Digite número de conta especial:",  "Número Conta Especial", JOptionPane.QUESTION_MESSAGE)));
+            ce.setSaldo (Double.parseDouble(JOptionPane.showInputDialog(null,"Digite saldo de conta especial (R$):",  "Saldo Conta Especial", JOptionPane.QUESTION_MESSAGE)));
             ce.limite = (Integer.parseInt(JOptionPane.showInputDialog(null,"Digite limite da conta especial (R$):",  "Limite titular Conta Especial", JOptionPane.QUESTION_MESSAGE)));
             mu = (Double.parseDouble(JOptionPane.showInputDialog(null,"Digite multa para conta especial (%):",  "Multa Conta Especial", JOptionPane.QUESTION_MESSAGE)));
             
