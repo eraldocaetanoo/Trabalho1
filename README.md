@@ -16,10 +16,10 @@ Transferência:
 Solicitará ao usuário o número da conta da qual se deseja tranferir e após isso, solicitará o numero da conta para qual será feita a transferência. Em seguida informe o valor da transferência. Logo após confirme os dados. O sistema informará a conclusão da operação;
 
 Reajuste:
-Essa operação reajusta o saldo da conta poupança. Solicitará a taxa de reajuste (%). Caso o usúario não digite nenhum valor o sitema ajustará por padrão em 10%. Logo após, o programa informará que o reajuste foi realizado.
+Essa operação reajusta o saldo da conta poupança. Solicitará a taxa de reajuste (%). Caso o usúario não digite nenhum valor o sistema ajustará por padrão em 10%. Logo após, o programa informará que o reajuste foi realizado.
 
 Ver saldos:
-Nesta opção você poderar ver o saldo atualizado de cada uma das contas;
+Nesta opção você poderá ver o saldo atualizado de cada uma das contas;
 
 Sair:
 Encerrará o programa.
