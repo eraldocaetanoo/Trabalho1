@@ -1,5 +1,8 @@
 # Trabalho1
 
+Aluno: Antonio Eraldo Caetano Martins
+Matrícula: 415221
+
 Ao executar o programa, responda o que for pedido e a cada resposta tecle Enter;
 
 Será solicitado: Nome, número e saldo inicial do titular da conta comum; Nome, número e saldo inicial da conta poupança; Nome, número, saldo inicial, valor de limite e porsentagem de multa da conta especial;
